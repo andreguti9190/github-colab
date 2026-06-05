@@ -1,0 +1,42 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/registo.css' %}">
+{% endblock %}
+{% block cards %}
+<section class="festival-hero">
+  <div class="hero-overlay">
+    <p class="hero-date">20 · 21 · 22 MARZO 2026</p>
+    <h1 class="hero-title">LOLA<span>2026</span></h1>
+    <p class="hero-sub">Escuela de Música · Festival Anual</p>
+  </div>
+</section>
+
+<section class="actividad-section">
+  <div class="section-header">
+    <h2>ACTIVIDAD DEL FESTIVAL</h2>
+    <div class="divider"></div>
+  </div>
+
+  <div class="pdf-wrapper">
+    <iframe src="{% static 'src/pdf/Actividad.pdf' %}" class="pdf-frame"></iframe>
+  </div>
+</section>
+<section class="registro-section">
+  <div class="section-header">
+    <h2>REGISTRATE AL FESTIVAL</h2>
+    <div class="divider"></div>
+    <p class="registro-sub">Asegurá tu lugar en el evento más esperado del año</p>
+  </div>
+
+  <div class="contedorregistro">
+    <img src="" alt="" class="registro-img">
+
+    <form action="" method="post" class="registro-form">
+      {% csrf_token %}
+      {{ formulario }}
+      <button type="submit" class="btn-registrar">REGISTRAR</button>
+    </form>
+  </div>
+</section>
+{% endblock %}
