@@ -1,0 +1,45 @@
+{% extends 'Base.html' %}
+{% load static %}
+{% block header %}
+<link rel="stylesheet" href="{% static 'css/registo.css' %}">
+{% endblock %}
+{% block cards %}
+<section class="festival-hero">
+    <h2>Listado de Alumnos</h2>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>DNI</th>
+                <th>Apellido</th>
+                <th>Nombre</th>
+                <th>Edad</th>
+                <th>Calle</th>
+                <th>Altura</th>
+                <th>Imagen</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in productos %}
+            <tr>
+                <td>{{ i.ID_Alumno }}</td>
+                <td>{{ i.DNI }}</td>
+                <td>{{ i.Apellido }}</td>
+                <td>{{ i.Nombre }}</td>
+                <td>{{ i.Edad }}</td>
+                <td>{{ i.Calle }}</td>
+                <td>{{ i.Altura }}</td>
+                <td>
+                    {% if i.Imagen %}
+                    <img src="{{ alumno.Imagen.url }}" width="100">
+                    {% else %}
+                    Sin imagen
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</section>
+{% endblock %}

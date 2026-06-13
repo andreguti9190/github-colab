@@ -8,4 +8,17 @@ def Home(request):
 def Registro(request):
     data={}
     data['formulario']=FormularioRegistro()
+    if request.method=="POST":
+        query=FormularioRegistro(data=request.POST,files=request.FILES)
+        if query.is_valid():
+            query.save()
+            data["mensaje"]="Datos Registrados"
+        else:
+            data['mensaje']="No se pudo Registrados"
     return render(request,'pages/Registro.html',data)
+
+def VerProductos(request):
+    query=Alumnos.objects.all()
+    data={}
+    data['productos']=query
+    return render(request,'pages/Productos.html',data)
